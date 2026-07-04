@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-navy-900 dark:bg-navy-950 dark:text-white antialiased;
+}
+
+::selection {
+  @apply bg-coastal-500/30 text-navy-900 dark:text-white;
+}
+
+.container-px {
+  @apply px-6 sm:px-8 lg:px-12;
+}
+
+.section-py {
+  @apply py-20 sm:py-28;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-coastal-400 via-coastal-500 to-gold-500 bg-clip-text text-transparent;
+}
+
+.card-surface {
+  @apply bg-white dark:bg-navy-800/60 border border-navy-100 dark:border-navy-700/60 shadow-sm;
+}
+
+.shimmer-bg {
+  background: linear-gradient(
+    110deg,
+    transparent 40%,
+    rgba(201, 162, 75, 0.25) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coastal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-navy-950;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1929"/>
+      <stop offset="55%" stop-color="#0D2233"/>
+      <stop offset="100%" stop-color="#07332A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="none" stroke="#C9A24B" stroke-opacity="0.4" stroke-width="2"/>
+  <circle cx="1000" cy="150" r="180" fill="#0F6B4C" opacity="0.25"/>
+  <circle cx="150" cy="520" r="160" fill="#C9A24B" opacity="0.12"/>
+  <text x="90" y="270" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#FFFFFF">Second Alarm</text>
+  <text x="90" y="335" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#C9A24B" letter-spacing="4">INVASIVE CONTROL</text>
+  <text x="90" y="410" font-family="Arial, sans-serif" font-size="26" fill="#B8C4D0">Iguana &amp; Muscovy Duck Removal — Southwest Florida</text>
+  <text x="90" y="455" font-family="Arial, sans-serif" font-size="22" fill="#7291AF">(239) 365-6753</text>
+</svg>
