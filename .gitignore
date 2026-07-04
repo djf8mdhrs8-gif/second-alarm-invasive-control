@@ -30,3 +30,7 @@ next-env.d.ts
 
 # claude code local settings (machine-specific, not for source control)
 .claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# sales/outreach working files (prospect data — keep out of the public repo)
+/outreach/

@@ -31,9 +31,14 @@ cp .env.example .env.local
 
 | Variable | Purpose |
 | --- | --- |
-| `CONTACT_FORM_WEBHOOK_URL` | Endpoint that receives JSON POST bodies for every contact form submission (Zapier, Make, a CRM webhook, etc.). If unset, submissions are only logged to the server console — set this before launch. |
-| `CONTACT_FORM_NOTIFY_EMAIL` | Notification email address forwarded in the webhook payload. |
+| `RESEND_API_KEY` | [Resend](https://resend.com) API key. When set, every contact form lead is emailed to `CONTACT_FORM_NOTIFY_EMAIL`. Recommended — free tier is plenty. |
+| `CONTACT_FORM_WEBHOOK_URL` | Endpoint that receives JSON POST bodies for every contact form submission (Zapier, Make, a CRM webhook, etc.). Can be used alongside or instead of Resend. |
+| `CONTACT_FORM_NOTIFY_EMAIL` | Email address that receives Resend lead notifications; also forwarded in the webhook payload. |
+| `CONTACT_FORM_FROM_EMAIL` | Optional From address for Resend emails once your domain is verified in Resend. Defaults to `onboarding@resend.dev`. |
 | `NEXT_PUBLIC_SITE_URL` | Canonical production URL, used for metadata, sitemap, and structured data. |
+
+If neither `RESEND_API_KEY` nor `CONTACT_FORM_WEBHOOK_URL` is set, submissions are only logged
+to the server console — configure at least one before launch so leads are actually delivered.
 
 ## Project Structure
 
