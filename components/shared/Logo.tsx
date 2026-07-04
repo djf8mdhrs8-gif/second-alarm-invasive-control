@@ -9,13 +9,13 @@ export function Logo({ className = "", light = false }: { className?: string; li
       aria-label="Second Alarm Invasive Control — Home"
     >
       <span className="flex items-center gap-2">
-        <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-gold-500/70 bg-navy-950">
+        <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-gold-500/70 bg-navy-950">
           <Image
-            src="/logo.png"
+            src="/logo-mark.png"
             alt=""
-            fill
-            sizes="40px"
-            className="scale-[1.7] object-cover object-[center_32%]"
+            width={80}
+            height={80}
+            className="h-full w-full scale-110 object-cover"
             priority
           />
         </span>
