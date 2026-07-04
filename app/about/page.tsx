@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Award, Compass, HeartHandshake, ShieldCheck, Sparkles, Target } from "lucide-react";
+import Image from "next/image";
+import { Award, Compass, Flame, HeartHandshake, ShieldCheck, Sparkles, Target } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { PageHero } from "@/components/shared/PageHero";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -17,6 +18,12 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const values = [
+  {
+    icon: Flame,
+    title: "Firefighter-Owned & Operated",
+    description:
+      "Second Alarm was founded and is run by career firefighters, bringing the same discipline, urgency, and accountability of the fire service to every property we protect.",
+  },
   {
     icon: ShieldCheck,
     title: "Compliance First",
@@ -70,7 +77,21 @@ export default function AboutPage() {
         title="Protecting Southwest Florida, One Property at a Time"
         description="We founded Second Alarm Invasive Control around a simple mission: protect Southwest Florida properties from invasive species through expertise, professionalism, and rapid response."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "About" }]}
-      />
+      >
+        <div className="mt-10 flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="Second Alarm Invasive Control — firefighter-owned emblem"
+            width={96}
+            height={144}
+            className="h-24 w-auto rounded-lg"
+          />
+          <span className="max-w-xs text-sm text-navy-300">
+            A name and mark rooted in the fire service — founded and operated by career
+            firefighters.
+          </span>
+        </div>
+      </PageHero>
 
       <section className="section-py bg-white dark:bg-navy-950">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -88,6 +109,11 @@ export default function AboutPage() {
               Our team combines hands-on field experience with deep knowledge of Florida wildlife
               regulations, ensuring every job is handled legally, humanely, and effectively — the
               first time.
+            </p>
+            <p className="mt-4 text-navy-600 dark:text-navy-300">
+              Second Alarm Invasive Control is firefighter-owned and operated. Our name reflects
+              the same fire-service standard we hold ourselves to on every property: show up fast,
+              assess the situation clearly, and handle it right.
             </p>
           </div>
           <div className="card-surface rounded-3xl p-8 sm:p-10">

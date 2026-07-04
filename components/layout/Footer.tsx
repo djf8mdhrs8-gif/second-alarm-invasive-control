@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Mail, Phone, ShieldCheck, Flame } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { Logo } from "@/components/shared/Logo";
 import { citiesServed, company, locations } from "@/lib/data";
@@ -11,14 +12,29 @@ export function Footer() {
     <footer className="border-t border-navy-800 bg-navy-950 text-navy-200">
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
-          <Logo />
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo.png"
+              alt="Second Alarm Invasive Control emblem"
+              width={64}
+              height={96}
+              className="h-16 w-auto rounded-lg"
+            />
+            <Logo />
+          </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-300">
             {company.tagline} Southwest Florida&rsquo;s trusted specialists in green iguana and Muscovy
             duck removal for homes, HOAs, and businesses.
           </p>
-          <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-gold-400">
-            <ShieldCheck size={18} />
-            FWC-Compliant &amp; Fully Insured
+          <div className="mt-6 flex flex-col gap-2 text-sm font-semibold">
+            <div className="flex items-center gap-2 text-gold-400">
+              <ShieldCheck size={18} />
+              FWC-Compliant &amp; Fully Insured
+            </div>
+            <div className="flex items-center gap-2 text-gold-400">
+              <Flame size={18} />
+              Firefighter-Owned &amp; Operated
+            </div>
           </div>
         </div>
 

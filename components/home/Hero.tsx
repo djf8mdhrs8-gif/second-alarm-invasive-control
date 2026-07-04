@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, PawPrint, Phone, ShieldCheck, Waves } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Flame, PawPrint, Phone, ShieldCheck, Waves } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/shared/Button";
 import { company } from "@/lib/data";
@@ -74,6 +75,9 @@ export function Hero() {
               <span className="flex items-center gap-2">
                 <PawPrint size={16} className="text-coastal-400" /> Humane &amp; FWC-Compliant
               </span>
+              <span className="flex items-center gap-2">
+                <Flame size={16} className="text-gold-400" /> Firefighter-Owned &amp; Operated
+              </span>
             </motion.div>
           </div>
 
@@ -87,12 +91,14 @@ export function Hero() {
             <div className="absolute -top-10 right-0 h-56 w-56 rounded-full bg-coastal-500/30 blur-3xl" />
             <div className="absolute -bottom-10 left-0 h-56 w-56 rounded-full bg-gold-500/20 blur-3xl" />
             <div className="relative flex flex-col items-center gap-4 px-8 text-center">
-              <span className="flex h-20 w-20 items-center justify-center rounded-full border border-gold-500/40 bg-navy-950/60">
-                <ShieldCheck className="h-9 w-9 text-gold-400" strokeWidth={1.5} />
-              </span>
-              <p className="font-display text-xl font-bold text-white">
-                Protecting Southwest Florida
-              </p>
+              <Image
+                src="/logo.png"
+                alt="Second Alarm Invasive Control — firefighter-owned emblem"
+                width={280}
+                height={420}
+                className="h-64 w-auto drop-shadow-2xl"
+                priority
+              />
               <p className="text-sm text-navy-300">
                 Rapid response invasive species removal for properties across the region.
               </p>

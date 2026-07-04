@@ -6,7 +6,7 @@ export function localBusinessSchema() {
     "@type": "PestControl",
     name: company.name,
     description:
-      "Southwest Florida's specialists in green iguana removal and Muscovy duck removal for homeowners, HOAs, property managers, golf courses, and commercial properties.",
+      "Firefighter-owned and operated. Southwest Florida's specialists in green iguana removal and Muscovy duck removal for homeowners, HOAs, property managers, golf courses, and commercial properties.",
     url: siteUrl,
     telephone: company.phone,
     email: company.email,
@@ -28,7 +28,7 @@ export function localBusinessSchema() {
       "Lehigh Acres",
     ].map((city) => ({ "@type": "City", name: city })),
     priceRange: "$$",
-    image: `${siteUrl}/og-image.svg`,
+    image: `${siteUrl}/logo.png`,
     sameAs: [],
   };
 }
