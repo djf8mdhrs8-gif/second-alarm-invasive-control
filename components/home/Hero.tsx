@@ -9,7 +9,7 @@ import { company } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy-950">
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden grain-overlay bg-navy-950">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(15,107,76,0.35),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(201,162,75,0.18),transparent_45%)]" />
         <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-30" />

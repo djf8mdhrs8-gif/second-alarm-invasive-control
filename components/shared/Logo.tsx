@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Logo({ className = "", light = false }: { className?: string; light?: boolean }) {
   return (
@@ -8,9 +9,15 @@ export function Logo({ className = "", light = false }: { className?: string; li
       aria-label="Second Alarm Invasive Control — Home"
     >
       <span className="flex items-center gap-2">
-        <span className="relative flex h-9 w-9 items-center justify-center rounded-sm border border-gold-500/70 bg-navy-900 text-gold-400 dark:bg-navy-950">
-          <span className="font-display text-lg font-bold">SA</span>
-          <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-coastal-500 group-hover:animate-ping" />
+        <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-gold-500/70 bg-navy-950">
+          <Image
+            src="/logo.png"
+            alt=""
+            fill
+            sizes="40px"
+            className="scale-[1.7] object-cover object-[center_32%]"
+            priority
+          />
         </span>
         <span className="flex flex-col">
           <span

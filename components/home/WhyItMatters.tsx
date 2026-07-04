@@ -14,7 +14,7 @@ export function WhyItMatters() {
   const threats = tab === "iguana" ? iguanaThreats : muscovyThreats;
 
   return (
-    <section className="section-py bg-navy-950">
+    <section className="section-py grain-overlay bg-navy-950">
       <Container>
         <SectionHeading
           light

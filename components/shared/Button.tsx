@@ -23,12 +23,12 @@ type ButtonAsButton = BaseProps & {
 
 const variantClasses: Record<NonNullable<BaseProps["variant"]>, string> = {
   primary:
-    "bg-coastal-600 text-white hover:bg-coastal-700 shadow-lg shadow-coastal-900/20 dark:shadow-coastal-950/40",
+    "bg-ember-600 text-white border border-ember-500/60 hover:bg-ember-700 shadow-lg shadow-ember-900/30",
   secondary:
-    "bg-navy-900 text-white hover:bg-navy-800 dark:bg-white dark:text-navy-900 dark:hover:bg-navy-100",
+    "bg-navy-900 text-white border border-gold-500/30 hover:bg-navy-800 dark:bg-white dark:text-navy-900 dark:hover:bg-navy-100",
   ghost:
     "bg-transparent border border-white/40 text-white hover:bg-white/10 backdrop-blur-sm",
-  gold: "bg-gold-500 text-navy-950 hover:bg-gold-400 shadow-lg shadow-gold-900/20",
+  gold: "bg-gold-500 text-navy-950 border border-gold-300/60 hover:bg-gold-400 shadow-lg shadow-gold-900/20",
 };
 
 const sizeClasses: Record<NonNullable<BaseProps["size"]>, string> = {
@@ -46,7 +46,7 @@ export function Button(props: ButtonAsLink | ButtonAsButton) {
   } = props;
 
   const classes = clsx(
-    "focus-ring inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0",
+    "focus-ring inline-flex items-center justify-center gap-2 rounded-md font-display font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0",
     variantClasses[variant],
     sizeClasses[size],
     className

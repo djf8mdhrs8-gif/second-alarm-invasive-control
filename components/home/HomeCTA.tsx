@@ -8,7 +8,7 @@ import { company } from "@/lib/data";
 
 export function HomeCTA() {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-24">
+    <section className="relative overflow-hidden grain-overlay bg-navy-950 py-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(15,107,76,0.25),transparent_60%)]" />
       <div className="absolute inset-0 bg-grid-pattern bg-[length:36px_36px] opacity-20" />
       <Container className="relative text-center">

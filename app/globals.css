@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Playfair Display", serif;
+  --font-display: "Oswald", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -32,7 +32,33 @@ body {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-coastal-400 via-coastal-500 to-gold-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-coastal-400 via-gold-400 to-ember-400 bg-clip-text text-transparent;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: theme("backgroundImage.grain");
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+}
+
+.ribbon {
+  @apply relative inline-flex items-center gap-2 bg-ember-700 px-6 py-2 text-xs font-bold uppercase tracking-[0.2em] text-gold-100 shadow-md;
+  clip-path: polygon(
+    12px 0%,
+    100% 0%,
+    calc(100% - 12px) 50%,
+    100% 100%,
+    12px 100%,
+    0% 50%
+  );
 }
 
 .card-surface {

@@ -37,7 +37,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function StatsCounter() {
   return (
-    <section className="section-py bg-gradient-to-br from-navy-900 via-navy-950 to-coastal-950">
+    <section className="section-py grain-overlay bg-gradient-to-br from-navy-900 via-navy-950 to-coastal-950">
       <Container>
         <SectionHeading
           light
