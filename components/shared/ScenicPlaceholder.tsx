@@ -21,7 +21,7 @@ export function ScenicPlaceholder({
   return (
     <div
       className={clsx(
-        "relative flex items-center justify-center overflow-hidden bg-gradient-to-br",
+        "relative flex items-center justify-center overflow-hidden grain-overlay bg-gradient-to-br",
         gradients[variant],
         className
       )}

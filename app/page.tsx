@@ -4,7 +4,6 @@ import { WhyItMatters } from "@/components/home/WhyItMatters";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { WhoWeServe } from "@/components/home/WhoWeServe";
 import { StatsCounter } from "@/components/home/StatsCounter";
-import { BeforeAfterGallery } from "@/components/home/BeforeAfterGallery";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQSection } from "@/components/home/FAQSection";
 import { HomeCTA } from "@/components/home/HomeCTA";
@@ -35,7 +34,6 @@ export default function HomePage() {
       <ServicesSection />
       <WhoWeServe />
       <StatsCounter />
-      <BeforeAfterGallery />
       <Testimonials />
       <FAQSection />
       <HomeCTA />

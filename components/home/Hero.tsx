@@ -23,7 +23,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-500/40 bg-gold-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-gold-400"
+              className="ribbon mb-6"
             >
               <ShieldCheck size={14} />
               Southwest Florida&rsquo;s Invasive Species Specialists

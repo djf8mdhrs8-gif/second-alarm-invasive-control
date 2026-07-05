@@ -241,39 +241,6 @@ export const stats = [
   { label: "Years of Combined Experience", value: 15, suffix: "+" },
 ];
 
-export const galleryItems = [
-  {
-    title: "Landscaping Restored",
-    description: "Ornamental landscaping fully restored after severe iguana feeding damage.",
-    category: "Iguana Removal",
-  },
-  {
-    title: "Seawall Reclaimed",
-    description: "Waterfront seawall stabilized after extensive iguana burrow remediation.",
-    category: "Waterfront Protection",
-  },
-  {
-    title: "Community Pond Cleaned",
-    description: "HOA retention pond and common area cleared and protected from Muscovy flocks.",
-    category: "Muscovy Duck Removal",
-  },
-  {
-    title: "Pool Deck Repaired",
-    description: "Pool deck pavers reset after burrowing damage was fully resolved.",
-    category: "Iguana Removal",
-  },
-  {
-    title: "Golf Course Fairway Protected",
-    description: "Fairway and cart path area restored after long-term iguana burrowing.",
-    category: "Golf Course Services",
-  },
-  {
-    title: "Dock Area Sanitized",
-    description: "Waterfront dock returned to a clean, safe condition for residents and guests.",
-    category: "Muscovy Duck Removal",
-  },
-];
-
 export const testimonials = [
   {
     name: "Diane R.",

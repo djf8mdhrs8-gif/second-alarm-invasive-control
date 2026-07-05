@@ -43,7 +43,7 @@ export function PageHero({
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.25em] text-gold-400"
+          className="ribbon mb-4"
         >
           {eyebrow}
         </motion.span>

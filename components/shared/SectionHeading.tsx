@@ -23,16 +23,7 @@ export function SectionHeading({
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
     >
-      {eyebrow && (
-        <span
-          className={clsxJoin(
-            "mb-3 inline-block text-xs font-bold uppercase tracking-[0.25em]",
-            light ? "text-gold-400" : "text-coastal-600 dark:text-coastal-400"
-          )}
-        >
-          {eyebrow}
-        </span>
-      )}
+      {eyebrow && <span className="ribbon mb-3">{eyebrow}</span>}
       <h2
         className={clsxJoin(
           "font-display text-balance text-3xl font-bold sm:text-4xl lg:text-[2.75rem]",
