@@ -7,6 +7,7 @@ import { ArrowRight, Flame, PawPrint, Phone, ShieldCheck, Waves } from "lucide-r
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/shared/Button";
 import { EmberParticles } from "@/components/shared/EmberParticles";
+import { SWFLMap } from "@/components/shared/SWFLMap";
 import { company } from "@/lib/data";
 
 export function Hero() {
@@ -117,7 +118,8 @@ export function Hero() {
             style={{ transformStyle: "preserve-3d", perspective: 1000 }}
             className="relative hidden aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-navy-800 via-navy-900 to-coastal-950 shadow-2xl lg:flex"
           >
-            <div className="absolute inset-0 bg-grid-pattern bg-[length:28px_28px] opacity-30" />
+            <SWFLMap className="absolute inset-0 h-full w-full opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
             <div className="absolute -top-10 right-0 h-56 w-56 rounded-full bg-coastal-500/30 blur-3xl" />
             <div className="absolute -bottom-10 left-0 h-56 w-56 rounded-full bg-gold-500/20 blur-3xl" />
             <div className="relative flex flex-col items-center gap-4 px-8 text-center">
@@ -129,7 +131,7 @@ export function Hero() {
                 className="h-64 w-auto drop-shadow-2xl"
                 priority
               />
-              <p className="text-sm text-navy-300">
+              <p className="text-sm text-navy-200">
                 Rapid response invasive species removal for properties across the region.
               </p>
             </div>

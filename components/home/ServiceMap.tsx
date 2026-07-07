@@ -6,19 +6,20 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SWFLMap } from "@/components/shared/SWFLMap";
 import { locations, citiesServed } from "@/lib/data";
 
 const coordinates: Record<string, { x: number; y: number }> = {
-  "Punta Gorda": { x: 40, y: 10 },
-  "Port Charlotte": { x: 45, y: 17 },
-  "Cape Coral": { x: 24, y: 32 },
-  "Fort Myers": { x: 41, y: 34 },
-  "Lehigh Acres": { x: 56, y: 36 },
-  Sanibel: { x: 9, y: 38 },
-  Captiva: { x: 4, y: 31 },
-  "Bonita Springs": { x: 34, y: 55 },
-  Estero: { x: 42, y: 50 },
-  Naples: { x: 29, y: 74 },
+  "Punta Gorda": { x: 43.75, y: 11.67 },
+  "Port Charlotte": { x: 50, y: 15.83 },
+  "Cape Coral": { x: 33.75, y: 37.5 },
+  "Fort Myers": { x: 47.5, y: 39.17 },
+  "Lehigh Acres": { x: 60, y: 40.83 },
+  Sanibel: { x: 18.75, y: 41.67 },
+  Captiva: { x: 13.75, y: 35.83 },
+  "Bonita Springs": { x: 42, y: 64.17 },
+  Estero: { x: 46.25, y: 59.17 },
+  Naples: { x: 40.75, y: 80 },
 };
 
 const linkedCities = new Set(locations.filter((l) => l.service === "iguana").map((l) => l.city));
@@ -36,10 +37,8 @@ export function ServiceMap() {
           description="From Punta Gorda to Naples, our team responds across the region."
         />
 
-        <div className="relative mx-auto mt-14 aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-navy-900 via-navy-950 to-coastal-950/60 sm:aspect-[3/4]">
-          <div className="absolute inset-0 bg-grid-pattern bg-[length:24px_24px] opacity-30" />
-          <div className="absolute -left-16 top-1/3 h-64 w-64 rounded-full bg-coastal-500/10 blur-3xl" />
-          <div className="absolute -right-10 bottom-0 h-56 w-56 rounded-full bg-gold-500/10 blur-3xl" />
+        <div className="relative mx-auto mt-14 aspect-[2/3] max-w-sm overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
+          <SWFLMap className="absolute inset-0 h-full w-full" />
 
           {citiesServed.map((city, i) => {
             const coord = coordinates[city];
