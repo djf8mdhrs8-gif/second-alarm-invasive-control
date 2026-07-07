@@ -1,4 +1,12 @@
+"use client";
+
+import { useId } from "react";
+
 export function SWFLMap({ className = "" }: { className?: string }) {
+  const uid = useId();
+  const waterId = `swfl-water-${uid}`;
+  const landId = `swfl-land-${uid}`;
+
   return (
     <svg
       viewBox="0 0 400 600"
@@ -7,18 +15,18 @@ export function SWFLMap({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="swfl-water" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={waterId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#1B3550" stopOpacity="0.55" />
           <stop offset="100%" stopColor="#04211B" stopOpacity="0.7" />
         </linearGradient>
-        <linearGradient id="swfl-land" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={landId} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#241F1B" />
           <stop offset="100%" stopColor="#17130F" />
         </linearGradient>
       </defs>
 
       {/* Water */}
-      <rect width="400" height="600" fill="url(#swfl-water)" />
+      <rect width="400" height="600" fill={`url(#${waterId}) #142230`} />
 
       {/* Latitude/longitude graticule for a chart-like feel */}
       <g stroke="#C9A24B" strokeOpacity="0.12" strokeWidth="1">
@@ -45,7 +53,7 @@ export function SWFLMap({ className = "" }: { className?: string }) {
            C155,495 175,495 175,510
            C178,530 172,560 175,600
            L400,600 L400,0 Z"
-        fill="url(#swfl-land)"
+        fill={`url(#${landId}) #1c1712`}
         stroke="#C9A24B"
         strokeOpacity="0.6"
         strokeWidth="2"
@@ -54,7 +62,7 @@ export function SWFLMap({ className = "" }: { className?: string }) {
       {/* Pine Island */}
       <path
         d="M100,140 C115,160 110,200 105,225 C95,235 75,225 78,200 C70,175 85,150 100,140 Z"
-        fill="url(#swfl-land)"
+        fill={`url(#${landId}) #1c1712`}
         stroke="#C9A24B"
         strokeOpacity="0.5"
         strokeWidth="1.5"
@@ -63,7 +71,7 @@ export function SWFLMap({ className = "" }: { className?: string }) {
       {/* Captiva */}
       <path
         d="M65,205 C70,215 55,225 40,220 C38,212 50,203 65,205 Z"
-        fill="url(#swfl-land)"
+        fill={`url(#${landId}) #1c1712`}
         stroke="#C9A24B"
         strokeOpacity="0.5"
         strokeWidth="1.5"
@@ -72,7 +80,7 @@ export function SWFLMap({ className = "" }: { className?: string }) {
       {/* Sanibel */}
       <path
         d="M105,240 C90,235 60,240 45,250 C55,258 90,258 105,250 Z"
-        fill="url(#swfl-land)"
+        fill={`url(#${landId}) #1c1712`}
         stroke="#C9A24B"
         strokeOpacity="0.5"
         strokeWidth="1.5"
