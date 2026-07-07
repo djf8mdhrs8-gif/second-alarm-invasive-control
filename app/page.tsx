@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { WhyItMatters } from "@/components/home/WhyItMatters";
+import { WhyTheyreHere } from "@/components/home/WhyTheyreHere";
 import { ServicesSection } from "@/components/home/ServicesSection";
+import { OurProcess } from "@/components/home/OurProcess";
 import { WhoWeServe } from "@/components/home/WhoWeServe";
 import { StatsCounter } from "@/components/home/StatsCounter";
+import { ServiceMap } from "@/components/home/ServiceMap";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQSection } from "@/components/home/FAQSection";
 import { HomeCTA } from "@/components/home/HomeCTA";
@@ -31,9 +34,12 @@ export default function HomePage() {
       <SchemaMarkup schema={[localBusinessSchema(), faqSchema()]} />
       <Hero />
       <WhyItMatters />
+      <WhyTheyreHere />
       <ServicesSection />
+      <OurProcess />
       <WhoWeServe />
       <StatsCounter />
+      <ServiceMap />
       <Testimonials />
       <FAQSection />
       <HomeCTA />

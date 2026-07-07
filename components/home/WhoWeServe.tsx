@@ -27,10 +27,12 @@ export function WhoWeServe() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
+                whileHover={{ y: -6, rotateX: 3, rotateY: -3 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="card-surface group rounded-2xl p-7 transition-all hover:-translate-y-1 hover:border-coastal-500/50"
+                style={{ transformStyle: "preserve-3d", perspective: 800 }}
+                className="card-surface group rounded-2xl p-7 transition-colors hover:border-coastal-500/50"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-coastal-600/10 text-coastal-600 transition-colors group-hover:bg-coastal-600 group-hover:text-white dark:text-coastal-400">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-coastal-600/10 text-coastal-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-coastal-600 group-hover:text-white dark:text-coastal-400">
                   <Icon size={22} />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold text-navy-900 dark:text-white">

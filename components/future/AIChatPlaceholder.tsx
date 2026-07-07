@@ -49,7 +49,7 @@ export function AIChatPlaceholder() {
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="focus-ring flex h-14 w-14 items-center justify-center rounded-full bg-navy-900 text-white shadow-xl transition-transform hover:-translate-y-0.5 dark:bg-coastal-600"
+        className="focus-ring flex h-14 w-14 items-center justify-center rounded-full border-2 border-gold-500/50 bg-navy-900 text-white shadow-xl transition-transform hover:-translate-y-0.5"
         aria-label="Open chat assistant"
       >
         <MessageCircle size={22} />

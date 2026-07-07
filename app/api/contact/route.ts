@@ -2,16 +2,6 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-type ContactPayload = {
-  name?: unknown;
-  phone?: unknown;
-  email?: unknown;
-  address?: unknown;
-  service?: unknown;
-  message?: unknown;
-  emergency?: unknown;
-};
-
 type Submission = {
   name: string;
   phone: string;
@@ -20,16 +10,28 @@ type Submission = {
   service: string;
   message: string;
   emergency: boolean;
+  preferredTime: string;
   submittedAt: string;
 };
 
+type Attachment = {
+  filename: string;
+  contentBase64: string;
+  contentType: string;
+};
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_PHOTO_BYTES = 8 * 1024 * 1024;
 
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-async function deliverViaWebhook(submission: Submission, webhookUrl: string, notifyEmail?: string) {
+async function deliverViaWebhook(
+  submission: Submission,
+  webhookUrl: string,
+  notifyEmail?: string
+) {
   const response = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -41,17 +43,23 @@ async function deliverViaWebhook(submission: Submission, webhookUrl: string, not
   }
 }
 
-async function deliverViaResend(submission: Submission, apiKey: string, notifyEmail: string) {
+async function deliverViaResend(
+  submission: Submission,
+  apiKey: string,
+  notifyEmail: string,
+  attachment: Attachment | null
+) {
   const subject = `${submission.emergency ? "🚨 EMERGENCY — " : ""}New lead: ${submission.service} — ${submission.name}`;
 
   const text = [
     submission.emergency ? "*** EMERGENCY SERVICE REQUEST ***\n" : "",
-    `Name:     ${submission.name}`,
-    `Phone:    ${submission.phone}`,
-    `Email:    ${submission.email}`,
-    `Address:  ${submission.address}`,
-    `Service:  ${submission.service}`,
-    `Received: ${submission.submittedAt}`,
+    `Name:      ${submission.name}`,
+    `Phone:     ${submission.phone}`,
+    `Email:     ${submission.email}`,
+    `Address:   ${submission.address}`,
+    `Service:   ${submission.service}`,
+    submission.preferredTime ? `Preferred: ${submission.preferredTime}` : "",
+    `Received:  ${submission.submittedAt}`,
     "",
     "Message:",
     submission.message,
@@ -71,6 +79,9 @@ async function deliverViaResend(submission: Submission, apiKey: string, notifyEm
       reply_to: submission.email,
       subject,
       text,
+      attachments: attachment
+        ? [{ filename: attachment.filename, content: attachment.contentBase64 }]
+        : undefined,
     }),
   });
 
@@ -81,15 +92,21 @@ async function deliverViaResend(submission: Submission, apiKey: string, notifyEm
 }
 
 export async function POST(request: Request) {
-  let payload: ContactPayload;
+  const formData = await request.formData().catch(() => null);
 
-  try {
-    payload = await request.json();
-  } catch {
+  if (!formData) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { name, phone, email, address, service, message, emergency } = payload;
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const email = formData.get("email");
+  const address = formData.get("address");
+  const service = formData.get("service");
+  const message = formData.get("message");
+  const emergency = formData.get("emergency");
+  const preferredTime = formData.get("preferredTime");
+  const photo = formData.get("photo");
 
   if (
     !isNonEmptyString(name) ||
@@ -106,6 +123,23 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
+  let attachment: Attachment | null = null;
+
+  if (photo instanceof File && photo.size > 0) {
+    if (!photo.type.startsWith("image/")) {
+      return NextResponse.json({ error: "Photo must be an image file." }, { status: 400 });
+    }
+    if (photo.size > MAX_PHOTO_BYTES) {
+      return NextResponse.json({ error: "Photo must be smaller than 8MB." }, { status: 400 });
+    }
+    const bytes = Buffer.from(await photo.arrayBuffer());
+    attachment = {
+      filename: photo.name || "photo.jpg",
+      contentBase64: bytes.toString("base64"),
+      contentType: photo.type,
+    };
+  }
+
   const submission: Submission = {
     name: name.trim().slice(0, 200),
     phone: phone.trim().slice(0, 50),
@@ -114,6 +148,7 @@ export async function POST(request: Request) {
     service: service.trim().slice(0, 100),
     message: message.trim().slice(0, 2000),
     emergency: emergency === "Yes",
+    preferredTime: isNonEmptyString(preferredTime) ? preferredTime.trim().slice(0, 100) : "",
     submittedAt: new Date().toISOString(),
   };
 
@@ -124,7 +159,7 @@ export async function POST(request: Request) {
   const deliveries: Array<Promise<void>> = [];
 
   if (resendApiKey && notifyEmail) {
-    deliveries.push(deliverViaResend(submission, resendApiKey, notifyEmail));
+    deliveries.push(deliverViaResend(submission, resendApiKey, notifyEmail, attachment));
   }
 
   if (webhookUrl) {

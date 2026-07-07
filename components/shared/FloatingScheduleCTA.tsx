@@ -27,7 +27,7 @@ export function FloatingScheduleCTA() {
         >
           <Link
             href="/contact"
-            className="focus-ring group flex items-center gap-2 rounded-full bg-gold-500 px-5 py-3.5 text-sm font-bold text-navy-950 shadow-xl shadow-gold-900/30 transition-transform hover:-translate-y-0.5"
+            className="focus-ring group flex items-center gap-2 rounded-md border border-gold-300/60 bg-gold-500 px-5 py-3.5 font-display text-sm font-bold uppercase tracking-wide text-navy-950 shadow-xl shadow-gold-900/30 transition-transform hover:-translate-y-0.5"
           >
             <CalendarCheck size={18} />
             Schedule an Inspection

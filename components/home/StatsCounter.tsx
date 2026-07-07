@@ -1,39 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Container } from "@/components/shared/Container";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 import { stats } from "@/lib/data";
-
-function Counter({ value, suffix }: { value: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const duration = 1600;
-    const start = performance.now();
-
-    function tick(now: number) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(eased * value));
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-
-    const raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, value]);
-
-  return (
-    <span ref={ref} className="font-display text-4xl font-bold text-white sm:text-5xl">
-      {display}
-      {suffix}
-    </span>
-  );
-}
 
 export function StatsCounter() {
   return (
@@ -55,7 +26,7 @@ export function StatsCounter() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="text-center"
             >
-              <Counter value={stat.value} suffix={stat.suffix} />
+              <AnimatedCounter value={stat.value} suffix={stat.suffix} className="text-4xl sm:text-5xl" />
               <p className="mt-2 text-sm font-medium uppercase tracking-wide text-navy-300">
                 {stat.label}
               </p>

@@ -61,7 +61,7 @@ export function InstantQuoteEstimator() {
                 }}
                 className={`focus-ring rounded-xl border px-4 py-3 text-sm font-semibold transition-colors ${
                   service === s
-                    ? "border-coastal-500 bg-coastal-600 text-white"
+                    ? "border-ember-600 bg-ember-600 text-white"
                     : "border-navy-200 text-navy-700 hover:border-coastal-400 dark:border-navy-700 dark:text-navy-200"
                 }`}
               >
@@ -85,7 +85,7 @@ export function InstantQuoteEstimator() {
                 }}
                 className={`focus-ring rounded-xl border px-4 py-3 text-sm font-semibold capitalize transition-colors ${
                   size === s
-                    ? "border-coastal-500 bg-coastal-600 text-white"
+                    ? "border-ember-600 bg-ember-600 text-white"
                     : "border-navy-200 text-navy-700 hover:border-coastal-400 dark:border-navy-700 dark:text-navy-200"
                 }`}
               >

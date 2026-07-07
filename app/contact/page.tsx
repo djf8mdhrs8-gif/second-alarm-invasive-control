@@ -29,8 +29,8 @@ export default function ContactPage() {
 
       <PageHero
         eyebrow="Get In Touch"
-        title="Schedule Your Inspection"
-        description="Reach out today and a Southwest Florida invasive species specialist will follow up promptly to schedule your inspection."
+        title="Report a Wildlife Issue"
+        description="Tell us what you're seeing — a Southwest Florida invasive species specialist will follow up promptly to schedule your inspection."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
 
@@ -98,10 +98,11 @@ export default function ContactPage() {
 
           <div className="card-surface rounded-3xl p-8 sm:p-10">
             <h2 className="font-display text-2xl font-bold text-navy-900 dark:text-white">
-              Request Your Inspection
+              Report the Issue
             </h2>
             <p className="mt-2 text-sm text-navy-600 dark:text-navy-300">
-              Fill out the form below and our team will reach out to confirm your appointment.
+              Tell us what you&rsquo;re seeing, add a photo if you have one, and our team will
+              reach out to confirm your appointment.
             </p>
             <div className="mt-8">
               <ContactForm />

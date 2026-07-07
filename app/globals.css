@@ -79,6 +79,23 @@ body {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coastal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-navy-950;
 }
 
+@keyframes ember-rise {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(var(--ember-drift, 0px), -60vh) scale(1.15);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

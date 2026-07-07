@@ -65,23 +65,6 @@ export const navLinks: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export type ServiceNeeded =
-  | "Green Iguana Removal"
-  | "Muscovy Duck Removal"
-  | "Property Inspection"
-  | "HOA / Commercial Consultation"
-  | "Emergency Service"
-  | "Other";
-
-export const serviceOptions: ServiceNeeded[] = [
-  "Green Iguana Removal",
-  "Muscovy Duck Removal",
-  "Property Inspection",
-  "HOA / Commercial Consultation",
-  "Emergency Service",
-  "Other",
-];
-
 export const iguanaThreats = [
   {
     title: "Seawall & Foundation Damage",
@@ -239,6 +222,57 @@ export const stats = [
   { label: "Emergency Response Availability", value: 24, suffix: "/7" },
   { label: "Customer Satisfaction Rate", value: 98, suffix: "%" },
   { label: "Years of Combined Experience", value: 15, suffix: "+" },
+];
+
+export const whyTheyreHere = [
+  {
+    title: "Florida's Climate",
+    description:
+      "Warm, humid conditions year-round mirror the tropical habitats both species evolved in, letting them thrive without a seasonal die-off.",
+  },
+  {
+    title: "No Natural Predators",
+    description:
+      "Neither species faces meaningful predation pressure in Florida, removing the checks that would otherwise keep populations in balance.",
+  },
+  {
+    title: "Rapid Reproduction",
+    description:
+      "Green iguanas can lay dozens of eggs per clutch, and Muscovy ducks breed prolifically — populations compound quickly without intervention.",
+  },
+  {
+    title: "Growing Populations",
+    description:
+      "What started as isolated sightings decades ago has become an established, expanding presence across Southwest Florida communities.",
+  },
+  {
+    title: "Increasing Property Damage",
+    description:
+      "As populations grow, so does the cumulative cost to seawalls, landscaping, docks, and common areas across the region.",
+  },
+];
+
+export const processSteps = [
+  {
+    title: "Inspection",
+    description: "We walk your property to identify activity, entry points, and risk areas.",
+  },
+  {
+    title: "Assessment",
+    description: "We evaluate severity and build a removal plan specific to your property.",
+  },
+  {
+    title: "Humane Removal",
+    description: "Our team executes the plan using FWC-compliant, humane methods.",
+  },
+  {
+    title: "Cleanup",
+    description: "We leave your property clean, safe, and free of debris from the work performed.",
+  },
+  {
+    title: "Prevention",
+    description: "You receive clear recommendations to reduce the risk of the problem returning.",
+  },
 ];
 
 export const testimonials = [

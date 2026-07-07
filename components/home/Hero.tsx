@@ -1,19 +1,47 @@
 "use client";
 
+import { useRef, useState, type MouseEvent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, Flame, PawPrint, Phone, ShieldCheck, Waves } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/shared/Button";
+import { EmberParticles } from "@/components/shared/EmberParticles";
 import { company } from "@/lib/data";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [glow, setGlow] = useState({ x: 50, y: 50, active: false });
+
+  function handleMouseMove(e: MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setGlow({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+      active: true,
+    });
+  }
+
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden grain-overlay bg-navy-950">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setGlow((g) => ({ ...g, active: false }))}
+      className="relative flex min-h-[100svh] items-center overflow-hidden grain-overlay bg-navy-950"
+    >
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(15,107,76,0.35),transparent_45%),radial-gradient(circle_at_80%_80%,rgba(201,162,75,0.18),transparent_45%)]" />
         <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-30" />
         <div className="absolute inset-0 animate-slow-pan bg-gradient-to-br from-navy-950 via-navy-900/60 to-coastal-950/40" />
+        <div
+          className="absolute inset-0 hidden transition-opacity duration-300 lg:block"
+          style={{
+            opacity: glow.active ? 1 : 0,
+            background: `radial-gradient(600px circle at ${glow.x}% ${glow.y}%, rgba(201,162,75,0.12), transparent 60%)`,
+          }}
+        />
+        <EmberParticles count={22} />
       </div>
 
       <Container className="relative z-10 pt-28">
@@ -84,7 +112,9 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ rotateX: -4, rotateY: 4, scale: 1.015 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformStyle: "preserve-3d", perspective: 1000 }}
             className="relative hidden aspect-[4/5] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-navy-800 via-navy-900 to-coastal-950 shadow-2xl lg:flex"
           >
             <div className="absolute inset-0 bg-grid-pattern bg-[length:28px_28px] opacity-30" />

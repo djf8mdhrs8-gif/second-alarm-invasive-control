@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
-import Link from "next/link";
+import { Phone, X } from "lucide-react";
 import { company } from "@/lib/data";
+import { Button } from "./Button";
 
 const STORAGE_KEY = "sa-exit-intent-shown";
 
@@ -53,9 +53,9 @@ export function ExitIntentPopup() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-gold-500/30 bg-white shadow-2xl dark:bg-navy-900"
+            className="relative w-full max-w-md overflow-hidden rounded-2xl border border-gold-500/30 bg-white shadow-2xl dark:bg-navy-900"
           >
-            <div className="h-2 w-full bg-gradient-to-r from-coastal-600 via-coastal-500 to-gold-500" />
+            <div className="h-2 w-full bg-gradient-to-r from-ember-600 via-gold-500 to-ember-600" />
             <button
               type="button"
               onClick={() => setOpen(false)}
@@ -65,10 +65,8 @@ export function ExitIntentPopup() {
               <X size={16} />
             </button>
             <div className="p-8 text-center">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-gold-500">
-                Before You Go
-              </span>
-              <h3 id="exit-intent-title" className="mt-3 font-display text-2xl font-bold text-navy-900 dark:text-white">
+              <span className="ribbon">Before You Go</span>
+              <h3 id="exit-intent-title" className="mt-4 font-display text-2xl font-bold text-navy-900 dark:text-white">
                 Claim Your Free Property Inspection
               </h3>
               <p className="mt-3 text-sm text-navy-600 dark:text-navy-300">
@@ -76,19 +74,17 @@ export function ExitIntentPopup() {
                 at no cost. Rapid response available.
               </p>
               <div className="mt-6 flex flex-col gap-3">
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="focus-ring rounded-full bg-coastal-600 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-coastal-700"
-                >
+                <Button href="/contact" className="justify-center">
                   Schedule My Free Inspection
-                </Link>
-                <a
+                </Button>
+                <Button
                   href={company.phoneHref}
-                  className="focus-ring rounded-full border border-navy-200 px-6 py-3.5 text-sm font-bold text-navy-800 transition-colors hover:border-coastal-500 dark:border-navy-700 dark:text-white"
+                  variant="secondary"
+                  className="justify-center"
+                  icon={<Phone size={16} />}
                 >
                   Call {company.phone}
-                </a>
+                </Button>
               </div>
             </div>
           </motion.div>
