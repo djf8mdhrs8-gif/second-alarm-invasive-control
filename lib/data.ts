@@ -560,4 +560,4 @@ export const locations: LocationContent[] = [
   },
 ];
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.secondalarminvasive.com";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://secondalarminvasivecontrol.com";
